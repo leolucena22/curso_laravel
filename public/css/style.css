@@ -1,0 +1,12 @@
+* {
+    font-family: var(--font1);
+}
+
+:root {
+    --font1: font-family: 'Roboto';
+}
+
+#navbar img {
+    width: 50px;
+}
+
