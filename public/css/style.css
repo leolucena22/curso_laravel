@@ -35,6 +35,26 @@ header {
     border-color: #C28008;
 }
 
+/* Event create page */
+#event-create-container {
+    /* padding: 30px; */
+}
+
+.form-group {
+    padding-bottom: 10px;
+}
+
+#event-create-container label {
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+#event-create-container input,
+#event-create-container select,
+#event-create-container textarea {
+    font-size: 12px
+}
+
 /* Navbar */
 #navbar img {
     width: 60px;
