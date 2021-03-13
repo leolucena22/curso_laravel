@@ -120,6 +120,10 @@ header {
     display: flex;
 }
 
+#cards-container p {
+    padding-left: 0;
+}
+
 #events-container .card {
     flex: 1 1 24%;
     max-width: 25%;

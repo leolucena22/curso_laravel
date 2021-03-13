@@ -14,12 +14,17 @@
 
             <div class="form-group">
                 <label for="image">Imagem do Evento</label>
-                <input type="file" class="form-control-file" id="image" name="image">
+                <input type="file" required class="form-control-file" id="image" name="image">
             </div>
 
             <div class="form-group">
                 <label for="title">Evento:</label>
                 <input type="text" class="form-control" id="title"  class="title" placeholder="Nome do evento" name="title">
+            </div>
+
+            <div class="form-group">
+                <label for="date">Data do Evento:</label>
+                <input type="date" class="form-control" id="date"  class="date" name="date">
             </div>
 
             <div class="form-group">
