@@ -10,9 +10,21 @@ class EventController extends Controller
 {
     public function index()
     {
-       $events = Event::All();
 
-       return view('welcome', ['events' => $events]);
+        $search = request('search');
+
+        if($search) {
+
+            $events = Event::where([
+                ['title', 'like', '%'.$search.'%']
+            ])->get();
+
+        } else {
+            $events = Event::All();
+        }
+        
+
+        return view('welcome', ['events' => $events, 'search' => $search]);
     }
 
     public function create()
@@ -37,8 +49,7 @@ class EventController extends Controller
         $event->items = $request->items;
 
         // Image upload
-        if($request->hasFile('image') && $request->file('image')->isValid())
-        {
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $requestImage = $request->image;
 
             $extension = $requestImage->extension();
@@ -49,6 +60,9 @@ class EventController extends Controller
 
             $event->image = $imageName;
         }
+
+        $user = auth()->user();
+        $event->user_id = $user->id;
 
         $event->save();
 
@@ -61,6 +75,5 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
 
         return view('events.show', ['event' => $event]);
-
     }
 }
